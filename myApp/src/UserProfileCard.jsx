@@ -52,9 +52,9 @@ const UserProfileCard = ({
           onClick={follow}
           className={`${
             isFollowing
-              ? "bg-red-500 text-white"
+              ? "bg-red-500 text-white "
               : "bg-blue-500 text-white"
-          } px-4 py-2 rounded-full`}
+          } px-4 py-2 rounded-full duration-300`}
         >
           {isFollowing ? "Unfollow" : "Follow"}
         </button>
