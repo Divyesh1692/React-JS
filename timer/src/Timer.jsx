@@ -16,8 +16,15 @@ const Timer = () => {
     setTime(0);
   };
 
+  const checkTime = () => {
+    if (hour == 0 && minute == 0 && second == 0) {
+      setFlag(false);
+    }
+  };
+
   let id;
   useEffect(() => {
+    checkTime();
     id = setInterval(() => {
       if (flag) {
         if (hour == 0 && minute == 0 && second == 0) {
@@ -39,7 +46,7 @@ const Timer = () => {
     return () => {
       clearInterval(id);
     };
-  });
+  }, [flag, hour, minute, second]);
 
   const divide = () => {
     if (time > 0) {
