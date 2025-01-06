@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Task = () => {
   const [data, setData] = useState({
@@ -7,7 +7,14 @@ const Task = () => {
     isCompleted: false,
   });
 
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(list));
+  }, [list]);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -19,16 +26,26 @@ const Task = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setList([...list, { ...data, id: Date.now() }]);
-    setData({ task: "", date: "", isCompleted: false }); // Clear the form after submission
+    if (data.task && data.date) {
+      setList([...list, { ...data, id: Date.now() }]);
+      setData({ task: "", date: "", isCompleted: false });
+    }
   };
 
   const toggleStatus = (id) => {
-    setList((List) =>
-      List.map((item) =>
+    setList((list) =>
+      list.map((item) =>
         item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
       )
     );
+  };
+
+  const removeTask = (id) => {
+    setList(list.filter((item) => item.id !== id));
+  };
+
+  const clearAllTasks = () => {
+    setList([]);
   };
 
   return (
@@ -36,7 +53,7 @@ const Task = () => {
       <h1 className="text-2xl font-bold mb-4 text-center">Task Manager</h1>
       <form onSubmit={onSubmit} className="space-y-4">
         <input
-          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
+          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
           name="task"
           placeholder="Enter your task"
@@ -44,7 +61,7 @@ const Task = () => {
           onChange={handleInput}
         />
         <input
-          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-500"
+          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="date"
           name="date"
           value={data.date}
@@ -71,19 +88,35 @@ const Task = () => {
               <h2 className="font-semibold">{task}</h2>
               <p className="text-sm text-gray-600">Due: {date}</p>
             </div>
-            <button
-              onClick={() => toggleStatus(id)}
-              className={`py-1 px-3 rounded-lg ${
-                isCompleted
-                  ? "bg-green-500 text-white hover:bg-green-600"
-                  : "bg-red-500 text-white hover:bg-red-600"
-              }`}
-            >
-              {isCompleted ? "Completed" : "Pending"}
-            </button>
+            <div className="space-x-2">
+              <button
+                onClick={() => toggleStatus(id)}
+                className={`py-1 px-3 rounded-lg ${
+                  isCompleted
+                    ? "bg-green-500 text-white hover:bg-green-600"
+                    : "bg-red-500 text-white hover:bg-red-600"
+                }`}
+              >
+                {isCompleted ? "Completed" : "Pending"}
+              </button>
+              <button
+                onClick={() => removeTask(id)}
+                className="py-1 px-3 rounded-lg bg-gray-500 text-white hover:bg-gray-600"
+              >
+                Remove
+              </button>
+            </div>
           </li>
         ))}
       </ul>
+      {list.length > 0 && (
+        <button
+          onClick={clearAllTasks}
+          className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition"
+        >
+          Clear All Tasks
+        </button>
+      )}
     </div>
   );
 };
