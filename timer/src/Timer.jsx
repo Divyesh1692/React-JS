@@ -50,12 +50,17 @@ const Timer = () => {
 
   const divide = () => {
     if (time > 0) {
-      let newTime = time / 60;
-      setHour(Math.floor(newTime));
-      setMinute(Math.floor((newTime - Math.floor(newTime)) * 60 - 1));
-      setSecond(59);
+      const totalSeconds = time * 60; 
+      const hours = Math.floor(totalSeconds / 3600); 
+      const minutes = Math.floor((totalSeconds % 3600) / 60); 
+      const seconds = totalSeconds % 60; 
+  
+      setHour(hours);
+      setMinute(minutes);
+      setSecond(seconds);
     }
   };
+  
 
   return (
     <div className="flex flex-col items-center w-full max-w-md mx-auto p-6 bg-gray-100 shadow-lg rounded-lg">
