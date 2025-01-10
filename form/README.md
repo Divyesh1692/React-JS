@@ -1,8 +1,18 @@
-# React + Vite
+# Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Task Manager application built with **React** and **Tailwind CSS**. This application allows users to create, edit, update, and delete tasks with due dates, while managing their completion status. All tasks are stored in **local storage** for persistent data across sessions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add new tasks with a name and due date.
+- Edit existing tasks.
+- Toggle task status between "Mark as Completed" and "Mark as Pending."
+- Remove individual tasks.
+- Clear all tasks at once.
+- Tasks are saved to local storage for persistence.
+
+## Tech Stack
+
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Local Storage**: Browser storage for saving tasks locally.
