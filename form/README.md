@@ -2,6 +2,10 @@
 
 A simple Task Manager application built with **React** and **Tailwind CSS**. This application allows users to create, edit, update, and delete tasks with due dates, while managing their completion status. All tasks are stored in **local storage** for persistent data across sessions.
 
+# Deployment URl
+
+https://taskmanager-4ah.pages.dev/
+
 ## Features
 
 - Add new tasks with a name and due date.
