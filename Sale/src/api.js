@@ -4,4 +4,8 @@ const API = axios.create({
   baseURL: "https://fakestoreapi.com",
 });
 
-export default API;
+const FOODAPI = axios.create({
+  baseURL: "http://localhost:3000",
+});
+
+export { API, FOODAPI };
