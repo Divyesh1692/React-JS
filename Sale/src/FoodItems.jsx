@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "./Form";
+import { Modal } from "@mui/material";
 
-const FoodItems = ({ name, price, image, id, onDelete, onUpdate }) => {
+
+
+const FoodItems = ({ name, price, image, id, onDelete }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="border rounded-lg p-4 shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105">
       <div className="text-xl font-semibold text-center mb-4 text-gray-700">
@@ -25,12 +31,16 @@ const FoodItems = ({ name, price, image, id, onDelete, onUpdate }) => {
           Delete
         </button>
         <button
-          // onClick={() => onUpdate(id)}
+          onClick={() => setOpen(true)}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
         >
-          Update
+          Edit
         </button>
       </div>
+
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <Form initialData={{ name, price, image, id }} />
+      </Modal>
     </div>
   );
 };

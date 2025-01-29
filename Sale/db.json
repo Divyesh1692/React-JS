@@ -1,65 +1,40 @@
 {
-  "food":[
+  "food": [
     {
-      "id": 1,
-      "name": "Margherita Pizza",
-      "price": 8.99,
-      "image": "https://example.com/images/margherita-pizza.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Caesar Salad",
-      "price": 5.99,
-      "image": "https://example.com/images/caesar-salad.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Vegetable Sushi",
-      "price": 9.99,
-      "image": "https://example.com/images/vegetable-sushi.jpg"
-    },
-    {
-      "id": 4,
+      "id": "4",
       "name": "Paneer Butter Masala",
       "price": 11.49,
       "image": "https://example.com/images/paneer-butter-masala.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Veggie Burger",
       "price": 6.99,
       "image": "https://example.com/images/veggie-burger.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Veg Biryani",
       "price": 10.99,
       "image": "https://example.com/images/veg-biryani.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Cheese Sandwich",
       "price": 4.99,
       "image": "https://example.com/images/cheese-sandwich.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Pancakes",
       "price": 7.49,
       "image": "https://example.com/images/pancakes.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Masala Dosa",
       "price": 8.49,
       "image": "https://example.com/images/masala-dosa.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Chocolate Cake",
-      "price": 4.99,
-      "image": "https://example.com/images/chocolate-cake.jpg"
     }
   ]
-  
 }
