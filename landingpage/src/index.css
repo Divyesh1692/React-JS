@@ -1,0 +1,45 @@
+.testimonial-slide {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .swiper-slide-active  {
+    transform: scale(1.15);
+  }
+  
+
+  @keyframes textAnimation {
+    0% {
+      opacity: 0.3;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 0.3;
+      transform: scale(0.95);
+    }
+  }
+  
+  .animate-textAnimation {
+    animation: textAnimation 2s infinite ease-in-out;
+  }
+  /* Customizing the pagination dots */
+.swiper-pagination-bullet {
+  background-color: rgba(75, 0, 130, 0.5); /* Set the color for inactive dots */
+  transition: background-color 0.3s ease;
+  
+}
+
+/* Active dot */
+.swiper-pagination-bullet-active {
+  background-color: #4B0082 !important; /* Active dot color */
+  scale: 1.5;
+}
+
+/* Optional: Add hover effect */
+.swiper-pagination-bullet:hover {
+  background-color: #4B0082; /* Hover color */
+}
+
